@@ -4,9 +4,9 @@
  License: Apache-2.0
 */
 .mdc-top-app-bar {
-  background-color: #6200ee;
+  background-color: #444648;
   /* @alternate */
-  background-color: var(--mdc-theme-primary, #6200ee);
+  background-color: var(--mdc-theme-primary, #444648);
   color: white;
   display: flex;
   position: fixed;

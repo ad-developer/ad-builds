@@ -202,11 +202,11 @@
   opacity: 0.08; }
 
 .mdc-chip-set--choice .mdc-chip.mdc-chip--selected::before, .mdc-chip-set--choice .mdc-chip.mdc-chip--selected::after {
-  background-color: #6200ee; }
+  background-color: #444648; }
   @supports not (-ms-ime-align: auto) {
     .mdc-chip-set--choice .mdc-chip.mdc-chip--selected::before, .mdc-chip-set--choice .mdc-chip.mdc-chip--selected::after {
       /* @alternate */
-      background-color: var(--mdc-theme-primary, #6200ee); } }
+      background-color: var(--mdc-theme-primary, #444648); } }
 
 .mdc-chip-set--choice .mdc-chip.mdc-chip--selected:hover::before {
   opacity: 0.12; }
@@ -226,20 +226,20 @@
   --mdc-ripple-fg-opacity: 0.24; }
 
 .mdc-chip-set--choice .mdc-chip.mdc-chip--selected {
-  color: #6200ee;
+  color: #444648;
   /* @alternate */
-  color: var(--mdc-theme-primary, #6200ee); }
+  color: var(--mdc-theme-primary, #444648); }
   .mdc-chip-set--choice .mdc-chip.mdc-chip--selected .mdc-chip__icon.mdc-chip__icon--leading {
-    color: rgba(98, 0, 238, 0.54); }
+    color: rgba(68, 70, 72, 0.54); }
   .mdc-chip-set--choice .mdc-chip.mdc-chip--selected:hover {
-    color: #6200ee;
+    color: #444648;
     /* @alternate */
-    color: var(--mdc-theme-primary, #6200ee); }
+    color: var(--mdc-theme-primary, #444648); }
 
 .mdc-chip-set--choice .mdc-chip .mdc-chip__checkmark-path {
-  stroke: #6200ee;
+  stroke: #444648;
   /* @alternate */
-  stroke: var(--mdc-theme-primary, #6200ee); }
+  stroke: var(--mdc-theme-primary, #444648); }
 
 .mdc-chip-set--choice .mdc-chip--selected {
   background-color: #fff;

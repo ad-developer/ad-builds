@@ -300,11 +300,11 @@
     -webkit-transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1));
             transform: translate(var(--mdc-ripple-fg-translate-end, 0)) scale(var(--mdc-ripple-fg-scale, 1)); }
   .mdc-checkbox::before, .mdc-checkbox::after {
-    background-color: #018786; }
+    background-color: #BB0826; }
     @supports not (-ms-ime-align: auto) {
       .mdc-checkbox::before, .mdc-checkbox::after {
         /* @alternate */
-        background-color: var(--mdc-theme-secondary, #018786); } }
+        background-color: var(--mdc-theme-secondary, #BB0826); } }
   .mdc-checkbox:hover::before {
     opacity: 0.04; }
   .mdc-checkbox:not(.mdc-ripple-upgraded):focus::before, .mdc-checkbox.mdc-ripple-upgraded--background-focused::before {
@@ -340,11 +340,11 @@
   border-color: #fff; }
 
 .mdc-checkbox__background::before {
-  background-color: #018786; }
+  background-color: #BB0826; }
   @supports not (-ms-ime-align: auto) {
     .mdc-checkbox__background::before {
       /* @alternate */
-      background-color: var(--mdc-theme-secondary, #018786); } }
+      background-color: var(--mdc-theme-secondary, #BB0826); } }
 
 .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate) ~ .mdc-checkbox__background {
   border-color: rgba(0, 0, 0, 0.54);
@@ -352,57 +352,57 @@
 
 .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
 .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background {
-  border-color: #018786;
+  border-color: #BB0826;
   /* @alternate */
-  border-color: var(--mdc-theme-secondary, #018786);
-  background-color: #018786;
+  border-color: var(--mdc-theme-secondary, #BB0826);
+  background-color: #BB0826;
   /* @alternate */
-  background-color: var(--mdc-theme-secondary, #018786); }
+  background-color: var(--mdc-theme-secondary, #BB0826); }
 
 @-webkit-keyframes mdc-checkbox-fade-in-background-0 {
   0% {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; }
   50% {
-    border-color: #018786;
+    border-color: #BB0826;
     /* @alternate */
-    border-color: var(--mdc-theme-secondary, #018786);
-    background-color: #018786;
+    border-color: var(--mdc-theme-secondary, #BB0826);
+    background-color: #BB0826;
     /* @alternate */
-    background-color: var(--mdc-theme-secondary, #018786); } }
+    background-color: var(--mdc-theme-secondary, #BB0826); } }
 
 @keyframes mdc-checkbox-fade-in-background-0 {
   0% {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; }
   50% {
-    border-color: #018786;
+    border-color: #BB0826;
     /* @alternate */
-    border-color: var(--mdc-theme-secondary, #018786);
-    background-color: #018786;
+    border-color: var(--mdc-theme-secondary, #BB0826);
+    background-color: #BB0826;
     /* @alternate */
-    background-color: var(--mdc-theme-secondary, #018786); } }
+    background-color: var(--mdc-theme-secondary, #BB0826); } }
 
 @-webkit-keyframes mdc-checkbox-fade-out-background-0 {
   0%, 80% {
-    border-color: #018786;
+    border-color: #BB0826;
     /* @alternate */
-    border-color: var(--mdc-theme-secondary, #018786);
-    background-color: #018786;
+    border-color: var(--mdc-theme-secondary, #BB0826);
+    background-color: #BB0826;
     /* @alternate */
-    background-color: var(--mdc-theme-secondary, #018786); }
+    background-color: var(--mdc-theme-secondary, #BB0826); }
   100% {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; } }
 
 @keyframes mdc-checkbox-fade-out-background-0 {
   0%, 80% {
-    border-color: #018786;
+    border-color: #BB0826;
     /* @alternate */
-    border-color: var(--mdc-theme-secondary, #018786);
-    background-color: #018786;
+    border-color: var(--mdc-theme-secondary, #BB0826);
+    background-color: #BB0826;
     /* @alternate */
-    background-color: var(--mdc-theme-secondary, #018786); }
+    background-color: var(--mdc-theme-secondary, #BB0826); }
   100% {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; } }

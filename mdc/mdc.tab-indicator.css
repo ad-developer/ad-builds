@@ -45,15 +45,15 @@
   pointer-events: none;
   z-index: 1; }
   .mdc-tab-indicator > .mdc-tab-indicator__content--underline {
-    background-color: #6200ee;
+    background-color: #444648;
     /* @alternate */
-    background-color: var(--mdc-theme-primary, #6200ee); }
+    background-color: var(--mdc-theme-primary, #444648); }
   .mdc-tab-indicator > .mdc-tab-indicator__content--underline {
     height: 2px; }
   .mdc-tab-indicator > .mdc-tab-indicator__content--icon {
-    color: #018786;
+    color: #BB0826;
     /* @alternate */
-    color: var(--mdc-theme-secondary, #018786); }
+    color: var(--mdc-theme-secondary, #BB0826); }
   .mdc-tab-indicator > .mdc-tab-indicator__content--icon {
     height: 34px;
     font-size: 34px; }

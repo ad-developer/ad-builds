@@ -4,8 +4,8 @@
  License: Apache-2.0
 */
 :root {
-  --mdc-theme-primary: #6200ee;
-  --mdc-theme-secondary: #018786;
+  --mdc-theme-primary: #444648;
+  --mdc-theme-secondary: #BB0826;
   --mdc-theme-background: #fff;
   --mdc-theme-surface: #fff;
   --mdc-theme-on-primary: #fff;
@@ -28,14 +28,14 @@
   --mdc-theme-text-icon-on-dark: rgba(255, 255, 255, 0.5); }
 
 .mdc-theme--primary {
-  color: #6200ee !important;
+  color: #444648 !important;
   /* @alternate */
-  color: var(--mdc-theme-primary, #6200ee) !important; }
+  color: var(--mdc-theme-primary, #444648) !important; }
 
 .mdc-theme--secondary {
-  color: #018786 !important;
+  color: #BB0826 !important;
   /* @alternate */
-  color: var(--mdc-theme-secondary, #018786) !important; }
+  color: var(--mdc-theme-secondary, #BB0826) !important; }
 
 .mdc-theme--background {
   background-color: #fff;
@@ -138,13 +138,13 @@
   color: var(--mdc-theme-text-icon-on-dark, rgba(255, 255, 255, 0.5)) !important; }
 
 .mdc-theme--primary-bg {
-  background-color: #6200ee !important;
+  background-color: #444648 !important;
   /* @alternate */
-  background-color: var(--mdc-theme-primary, #6200ee) !important; }
+  background-color: var(--mdc-theme-primary, #444648) !important; }
 
 .mdc-theme--secondary-bg {
-  background-color: #018786 !important;
+  background-color: #BB0826 !important;
   /* @alternate */
-  background-color: var(--mdc-theme-secondary, #018786) !important; }
+  background-color: var(--mdc-theme-secondary, #BB0826) !important; }
 
 /*# sourceMappingURL=mdc.theme.css.map*/

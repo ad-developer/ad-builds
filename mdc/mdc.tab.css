@@ -173,11 +173,11 @@
     width: var(--mdc-ripple-fg-size, 100%);
     height: var(--mdc-ripple-fg-size, 100%); }
   .mdc-tab__ripple::before, .mdc-tab__ripple::after {
-    background-color: #6200ee; }
+    background-color: #444648; }
     @supports not (-ms-ime-align: auto) {
       .mdc-tab__ripple::before, .mdc-tab__ripple::after {
         /* @alternate */
-        background-color: var(--mdc-theme-primary, #6200ee); } }
+        background-color: var(--mdc-theme-primary, #444648); } }
   .mdc-tab__ripple:hover::before {
     opacity: 0.04; }
   .mdc-tab__ripple:not(.mdc-ripple-upgraded):focus::before, .mdc-tab__ripple.mdc-ripple-upgraded--background-focused::before {
@@ -238,14 +238,14 @@
   transition-delay: 100ms; }
 
 .mdc-tab--active .mdc-tab__text-label {
-  color: #6200ee;
+  color: #444648;
   /* @alternate */
-  color: var(--mdc-theme-primary, #6200ee); }
+  color: var(--mdc-theme-primary, #444648); }
 
 .mdc-tab--active .mdc-tab__icon {
-  color: #6200ee;
+  color: #444648;
   /* @alternate */
-  color: var(--mdc-theme-primary, #6200ee); }
+  color: var(--mdc-theme-primary, #444648); }
 
 .mdc-tab--active .mdc-tab__text-label,
 .mdc-tab--active .mdc-tab__icon {

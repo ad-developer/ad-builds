@@ -78,9 +78,9 @@
   background-size: cover; }
 
 .mdc-grid-tile__secondary {
-  background-color: #6200ee;
+  background-color: #444648;
   /* @alternate */
-  background-color: var(--mdc-theme-primary, #6200ee);
+  background-color: var(--mdc-theme-primary, #444648);
   color: #fff;
   /* @alternate */
   color: var(--mdc-theme-on-primary, #fff);

@@ -124,9 +124,9 @@
       margin-right: 0; }
 
 .mdc-dialog__action:not(:disabled) {
-  color: #018786;
+  color: #BB0826;
   /* @alternate */
-  color: var(--mdc-theme-secondary, #018786); }
+  color: var(--mdc-theme-secondary, #BB0826); }
 
 @media (max-width: 640px) {
   .mdc-dialog {

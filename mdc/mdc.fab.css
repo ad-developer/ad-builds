@@ -93,7 +93,7 @@
   -moz-appearance: none;
   -webkit-appearance: none;
   overflow: hidden;
-  background-color: #018786;
+  background-color: #BB0826;
   color: #fff;
   /* @alternate */
   color: var(--mdc-theme-on-secondary, #fff); }
@@ -154,7 +154,7 @@
   @supports not (-ms-ime-align: auto) {
     .mdc-fab {
       /* @alternate */
-      background-color: var(--mdc-theme-secondary, #018786); } }
+      background-color: var(--mdc-theme-secondary, #BB0826); } }
   .mdc-fab .mdc-fab__icon {
     width: 24px;
     height: 24px;
