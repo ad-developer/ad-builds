@@ -1,4 +1,4 @@
-var ad = typeof ad === "object" ? ad : {}; ad["component"] =
+var ad = typeof ad === "object" ? ad : {}; ad["cookie"] =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -82,27 +82,39 @@ var ad = typeof ad === "object" ? ad : {}; ad["component"] =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./packages/base/component.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./packages/cookie/cookie.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./packages/base/component.js":
-/*!************************************!*\
-  !*** ./packages/base/component.js ***!
-  \************************************/
-/*! exports provided: default, ADComponent */
+/***/ "./packages/cookie/cookie.js":
+/*!***********************************!*\
+  !*** ./packages/cookie/cookie.js ***!
+  \***********************************/
+/*! exports provided: default, ADCookie */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ADComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADComponent", function() { return ADComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ADCookie; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADCookie", function() { return ADCookie; });
 function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -110,154 +122,131 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-/* const cssClasses = {};*/
-var strings = {
-  INSTANCE_KEY: 'ad-base'
-};
-/** Class representing a base ADComponent. */
+/** ADCookie class. */
+var ADCookie = /*#__PURE__*/function () {
+  _createClass(ADCookie, null, [{
+    key: "create",
+    value: function create() {
+      var instance = _construct(ADCookie, [root].concat(_toConsumableArray(args)));
 
-var ADComponent = /*#__PURE__*/function () {
-  _createClass(ADComponent, null, [{
-    key: "attachTo",
-
-    /**
-     * @param {!Element} root
-     * @return {!ADComponent}
-     */
-    value: function attachTo(root) {
-      for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-        args[_key - 1] = arguments[_key];
-      }
-
-      // Subclasses which extend ADComponent should provide an attachTo() method that takes a root element and
-      // returns an instantiated component with its root set to that element.
-      var instance = _construct(ADComponent, [root].concat(args)); // Attach instance to the root
-
-
-      root.ad = root.ad || {};
-      root.ad[strings.INSTANCE_KEY] = instance;
       return instance;
     }
-    /**
-     * @param {!Element} root
-     * @return {!ADComponent}
-     */
-
-  }, {
-    key: "getInstance",
-    value: function getInstance(root) {
-      return root.ad && root.ad[strings.INSTANCE_KEY] ? root.ad[strings.INSTANCE_KEY] : null;
-    }
-    /**
-     * @param {!Element} root
-     * @param {...?} args
-     */
-
   }]);
 
-  function ADComponent(root) {
-    _classCallCheck(this, ADComponent);
+  function ADCookie() {
+    _classCallCheck(this, ADCookie);
 
-    /** @protected {!Element} */
-    this.root_ = root;
-
-    for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-      args[_key2 - 1] = arguments[_key2];
-    }
-
-    this.init.apply(this, args);
-    this.initSyncWithDOM();
+    this.init();
   }
-  /**
-   * @param {...?} args
-   */
 
-
-  _createClass(ADComponent, [{
+  _createClass(ADCookie, [{
     key: "init",
-    value: function init()
-    /* ...args*/
-    {// Subclasses can override this to do any additional setup work that would be considered part of a
-      // "constructor". Essentially, it is a hook into the parent constructor before the component is
-      // initialized. Any additional arguments besides root will be passed in here.
+    value: function init() {
+      this.defaultAttributes = {
+        path: '/'
+      };
     }
   }, {
-    key: "initSyncWithDOM",
-    value: function initSyncWithDOM() {// Subclasses should override this method if they need to perform work to synchronize with a host DOM
-      // object. An example of this would be a form control wrapper that needs to synchronize its internal state
-      // to some property or attribute of the host DOM. Please note: this is *not* the place to perform DOM
-      // reads/writes that would cause layout / paint, as this is called synchronously from within the constructor.
-    }
-  }, {
-    key: "destroy",
-    value: function destroy() {// Subclasses may implement this method to release any resources / deregister any listeners they have
-      // attached. An example of this might be deregistering a resize event from the window object.
-    }
-    /**
-     * Wrapper method to add an event listener to the component's root element. This is most useful when
-     * listening for custom events.
-     * @param {!string} evtType
-     * @param {!Function} handler
-     */
+    key: "get",
+    value: function get(name) {
+      if (typeof document === 'undefined' || arguments.length && !name) {
+        return;
+      } // To prevent the for loop in the first place assign an empty array
+      // in case there are no cookies at all.
 
-  }, {
-    key: "listen",
-    value: function listen(evtType, handler) {
-      this.root_.addEventListener(evtType, handler);
-    }
-    /**
-     * Wrapper method to remove an event listener to the component's root element. This is most useful when
-     * unlistening for custom events.
-     * @param {!string} evtType
-     * @param {!Function} handler
-     */
 
-  }, {
-    key: "unlisten",
-    value: function unlisten(evtType, handler) {
-      this.root_.removeEventListener(evtType, handler);
-    }
-    /**
-     * Fires a cross-browser-compatible custom event from the component root of the given type,
-     * with the given data.
-     * @param {!string} evtType
-     * @param {Object?} evtData
-     * @param {boolean=} shouldBubble
-     */
+      var cookies = document.cookie ? document.cookie.split('; ') : [];
+      var jar = {};
 
-  }, {
-    key: "emit",
-    value: function emit(evtType, evtData) {
-      var shouldBubble = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-      var evt;
+      for (var i = 0; i < cookies.length; i++) {
+        var parts = cookies[i].split('=');
+        var value = parts.slice(1).join('=');
 
-      if (typeof CustomEvent === 'function') {
-        evt = new CustomEvent(evtType, {
-          detail: evtData,
-          bubbles: shouldBubble
-        });
-      } else {
-        evt = document.createEvent('CustomEvent');
-        evt.initCustomEvent(evtType, shouldBubble, false, evtData);
+        try {
+          var found = decodeURIComponent(parts[0]);
+          jar[found] = this.converterRead_(value, found);
+
+          if (name === found) {
+            break;
+          }
+        } catch (e) {}
       }
 
-      this.root_.dispatchEvent(evt);
+      return name ? jar[name] : jar;
     }
-    /**
-     * Create html element
-     * @param {!string} html
-     */
-
   }, {
-    key: "createElement",
-    value: function createElement(html) {
-      var el = document.createElement('div');
-      el.innerHTML = html;
-      return el.firstChild;
+    key: "set",
+    value: function set(name, value, attributes) {
+      if (typeof document === 'undefined') {
+        return;
+      }
+
+      attributes = this.assign_({}, defaultAttributes, attributes);
+
+      if (typeof attributes.expires === 'number') {
+        attributes.expires = new Date(Date.now() + attributes.expires * 864e5);
+      }
+
+      if (attributes.expires) {
+        attributes.expires = attributes.expires.toUTCString();
+      }
+
+      name = encodeURIComponent(name).replace(/%(2[346B]|5E|60|7C)/g, decodeURIComponent).replace(/[()]/g, escape);
+      var stringifiedAttributes = '';
+
+      for (var attributeName in attributes) {
+        if (!attributes[attributeName]) {
+          continue;
+        }
+
+        stringifiedAttributes += '; ' + attributeName;
+
+        if (attributes[attributeName] === true) {
+          continue;
+        } // Considers RFC 6265 section 5.2:
+        // ...
+        // 3.  If the remaining unparsed-attributes contains a %x3B (";")
+        //     character:
+        // Consume the characters of the unparsed-attributes up to,
+        // not including, the first %x3B (";") character.
+        // ...
+
+
+        stringifiedAttributes += '=' + attributes[attributeName].split(';')[0];
+      }
+
+      return document.cookie = name + '=' + this.converterWrite_(value, name) + stringifiedAttributes;
+    }
+  }, {
+    key: "converterRead_",
+    value: function converterRead_(value) {
+      if (value[0] === '"') {
+        value = value.slice(1, -1);
+      }
+
+      return value.replace(/(%[\dA-F]{2})+/gi, decodeURIComponent);
+    }
+  }, {
+    key: "converterWrite_",
+    value: function converterWrite_(value) {
+      return encodeURIComponent(value).replace(/%(2[346BF]|3[AC-F]|40|5[BDE]|60|7[BCD])/g, decodeURIComponent);
+    }
+  }, {
+    key: "assign_",
+    value: function assign_(target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i];
+
+        for (var key in source) {
+          target[key] = source[key];
+        }
+      }
+
+      return target;
     }
   }]);
 
-  return ADComponent;
+  return ADCookie;
 }();
 
 

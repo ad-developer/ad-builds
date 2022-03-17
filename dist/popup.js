@@ -1,4 +1,4 @@
-var ad = typeof ad === "object" ? ad : {}; ad["page-controller"] =
+var ad = typeof ad === "object" ? ad : {}; ad["popup"] =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -82,22 +82,22 @@ var ad = typeof ad === "object" ? ad : {}; ad["page-controller"] =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./packages/page-controller/page-controller.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./packages/popup/popup.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./packages/page-controller/page-controller.js":
-/*!*****************************************************!*\
-  !*** ./packages/page-controller/page-controller.js ***!
-  \*****************************************************/
-/*! exports provided: default, ADPageController */
+/***/ "./packages/popup/popup.js":
+/*!*********************************!*\
+  !*** ./packages/popup/popup.js ***!
+  \*********************************/
+/*! exports provided: default, ADPopUp */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ADPageController; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADPageController", function() { return ADPageController; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ADPopUp; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADPopUp", function() { return ADPopUp; });
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
@@ -122,45 +122,224 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-// import ADComponent from '../base/component';
+/* const cssClasses = {}; */
+//import ADComponent from '../base/component';
 var strings = {
-  INSTANCE_KEY: 'ad-page-controller'
+  INSTANCE_KEY: 'ad-pupup',
+  ANCOR: 'ad-popup-ancor',
+  TARGET: 'ad-popup-target',
+  OPEN: 'ad-popup--open'
 };
+/** ADPopUp class. */
 
-var ADPageController = /*#__PURE__*/function (_ad$component$ADCompo) {
-  _inherits(ADPageController, _ad$component$ADCompo);
+var ADPopUp = /*#__PURE__*/function (_ad$component$ADCompo) {
+  _inherits(ADPopUp, _ad$component$ADCompo);
 
-  var _super = _createSuper(ADPageController);
+  var _super = _createSuper(ADPopUp);
 
-  function ADPageController() {
-    _classCallCheck(this, ADPageController);
+  function ADPopUp() {
+    _classCallCheck(this, ADPopUp);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(ADPageController, [{
+  _createClass(ADPopUp, [{
     key: "init",
-    value: function init() {// Package Controller
-      // Ajax Controller
-      // Socket Controller
-      // Cache Controller
-      // State controller
+
+    /**
+       * @param {...?} args
+       *  *  Setting bject optional
+       *  {
+       *    top = 99, // top position
+       *    left = 99  // left posiion
+       *    template: '' html template of the popup window (optional)
+       *    keepOpened: keep window opened 
+       *  }
+       */
+    value: function init() {
+      var $this = this;
+      var settings;
+
+      if (arguments.length > 0) {
+        settings = arguments.length <= 0 ? undefined : arguments[0];
+        $this.top_ = settings.top;
+        $this.left_ = settings.left;
+        $this.template_ = settings.template;
+        $this.keepOpened_ = settings.keepOpened;
+      }
+
+      var popup = null;
+
+      if (settings && settings.template) {
+        // Set specified popup window
+        popup = $this.setTemplate_(settings.template); // Insert popup right after the root element 
+
+        $this.root_.insertAdjacentElement('afterend', popup);
+      } else {
+        // Find popup window on the page
+        var target = $this.root_.getAttribute(strings.ANCOR);
+        popup = document.querySelector("[".concat(strings.TARGET, "=").concat(target, "]"));
+      }
+
+      $this.popup_ = popup; // Set specified position
+      //if ($this.top_ && $this.left_) {
+      //  $this.setPosition_($this.left_, $this.top_);
+      //}
+
+      $this.listen('click', function (e) {
+        e.stopPropagation();
+        $this.open();
+      });
+    }
+    /**
+    * @public
+    * Close popup window
+    */
+
+  }, {
+    key: "close",
+    value: function close() {
+      var _this = this;
+
+      this.popup_.classList.remove(strings.OPEN);
+
+      if (!this.keepOpened_) {
+        document.body.removeEventListener('click', function (e) {
+          _this.handleBodyClick_(e);
+        });
+      }
+    }
+    /**
+       * @public
+       * Open popup window
+       */
+
+  }, {
+    key: "open",
+    value: function open() {
+      var _this2 = this;
+
+      var pos = this.getPopupPosition_();
+      this.setPosition_(pos.left, pos.top);
+      this.popup_.classList.add(strings.OPEN);
+
+      if (!this.keepOpened_) {
+        document.body.addEventListener('click', function (e) {
+          _this2.handleBodyClick_(e);
+        });
+      }
+    }
+    /**
+        * @private
+        * Get popup window position based on the ancor position
+        * or specified position throug the settings
+        */
+
+  }, {
+    key: "getPopupPosition_",
+    value: function getPopupPosition_() {
+      var top;
+      var left;
+
+      if (this.left_ && this.top_) {
+        left = this.left_;
+        top = this.top_;
+      } else {
+        // A threshold distance of 32px is expected
+        // to be maintained between the tooltip and the viewport edge.
+        var breaker = 32;
+
+        if (this.breaker_) {
+          breaker = this.breaker_;
+        }
+
+        var popup = this.popup_;
+        var elRec = this.root_.getBoundingClientRect();
+        var center = elRec.left + elRec.width / 2;
+        left = center - popup.clientWidth / 2; // Left breaker
+
+        if (left < breaker) {
+          left = breaker;
+        } // Right breaker
+
+
+        var screenWidth = window.innerWidth;
+
+        if (left + popup.clientWidth + breaker > screenWidth) {
+          left = screenWidth - popup.clientWidth - breaker;
+        }
+
+        left = left;
+        top = elRec.bottom + 8;
+      }
+
+      return {
+        top: top,
+        left: left
+      };
+    }
+    /**
+        * @private
+        * @param {!number} top - position
+        * @param {!number} left - position
+        */
+
+  }, {
+    key: "setPosition_",
+    value: function setPosition_(left, top) {
+      this.popup_.style.left = left + 'px';
+      this.popup_.style.top = top + 'px';
+    }
+    /**
+     * @private
+     * @param {!string} template - html template
+     */
+
+  }, {
+    key: "setTemplate_",
+    value: function setTemplate_(template) {
+      template = this.createElement(template);
+      return template;
+    }
+    /**
+     * @private
+     * @param {!Event} ev - event
+     */
+
+  }, {
+    key: "handleBodyClick_",
+    value: function handleBodyClick_(ev) {
+      if (this.isElementConrainer_(ev.target)) {
+        return;
+      }
+
+      this.close();
+    }
+    /**
+    * @private
+    * @param {!Element} element - html element
+    */
+
+  }, {
+    key: "isElementConrainer_",
+    value: function isElementConrainer_(element) {
+      return this.popup_ === element || this.popup_.contains(element);
     }
   }], [{
     key: "attachTo",
 
     /**
-      * @param {!Element} root
-      * @return {!ADController}
-      */
+       * @param {!Element} root
+       * @return {!ADPopUp}
+       */
     value: function attachTo(root) {
       for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
         args[_key - 1] = arguments[_key];
       }
 
-      // Subclasses which extend ADComponent should provide an attachTo() method that takes a root element and
+      // Subclasses which extend ADPopUp should provide an attachTo() method that takes a root element and
       // returns an instantiated component with its root set to that element.
-      var instance = _construct(ADPageController, [root].concat(args)); // Attach instance to the root
+      var instance = _construct(ADPopUp, [root].concat(args)); // Attach instance to the root
 
 
       root.ad = root.ad || {};
@@ -168,18 +347,18 @@ var ADPageController = /*#__PURE__*/function (_ad$component$ADCompo) {
       return instance;
     }
     /**
-      * @param {!Element} root
-      * @return {!ADController}
-      */
+       * @param {!Element} root
+       * @return {!ADPopUp}
+       */
 
   }, {
     key: "getInstance",
     value: function getInstance(root) {
-      return root.ad && root.ad[ADPageController.strings.INSTANCE_KEY] ? root.ad[strings.INSTANCE_KEY] : null;
+      return root.ad && root.ad[strings.INSTANCE_KEY] ? root.ad[strings.INSTANCE_KEY] : null;
     }
   }]);
 
-  return ADPageController;
+  return ADPopUp;
 }(ad.component.ADComponent);
 
 

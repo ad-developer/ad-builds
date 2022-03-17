@@ -208,33 +208,22 @@ var ADTooltip = /*#__PURE__*/function (_ad$component$ADCompo) {
         var tooltip = document.createElement('span');
         tooltip.classList.add(strings.TOOLTIP_CL);
         tooltip.innerHTML = toolTipContent;
-        this.toolTip_ = tooltip; // Depricated - this approach is used for IE 11. Will be phased out
-        // once IE is no longer supported.
-        // this.root_.insertAdjacentElement('afterend', tooltip);
-
-        this.insertAfter_(this.root_, tooltip);
+        this.toolTip_ = tooltip;
+        this.root_.insertAdjacentElement('afterend', tooltip);
       } else {
-        this.toolTip_.innerHTML = toolTipContent; // Remove css width, max/min width to get correct width siaing
-
-        for (var index = 0, prop; prop = ['max-width', 'min-width', 'width', 'white-space'][index]; index++) {
-          this.toolTip_.style.removeProperty(prop);
-        }
+        this.toolTip_.innerHTML = toolTipContent;
       }
 
       var whiteSpace = 'nowrap';
-      var maxWidth;
+      var maxWidth = 'none';
 
       if (this.toolTip_.clientWidth > this.maxLength_) {
         whiteSpace = 'normal';
         maxWidth = this.maxLength_ + 'px';
-      } else {
-        maxWidth = this.toolTip_.clientWidth + 'px';
       }
 
       this.toolTip_.style['white-space'] = whiteSpace;
       this.toolTip_.style['max-width'] = maxWidth;
-      this.toolTip_.style['min-width'] = maxWidth;
-      this.toolTip_.style.width = maxWidth;
     }
     /**
       * @private
@@ -310,17 +299,6 @@ var ADTooltip = /*#__PURE__*/function (_ad$component$ADCompo) {
     value: function setPosition_(x, y) {
       this.toolTip_.style.left = x + 'px';
       this.toolTip_.style.top = y + 'px';
-    }
-    /**
-      * @private
-      * @param {!Element} referenceElement - referenceElement
-      * @param {!Element} newElement - newElement
-      */
-
-  }, {
-    key: "insertAfter_",
-    value: function insertAfter_(referenceElement, newElement) {
-      referenceElement.parentNode.insertBefore(newElement, referenceElement.nextSibling);
     }
   }], [{
     key: "attachTo",
