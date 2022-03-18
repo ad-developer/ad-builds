@@ -123,7 +123,7 @@ var ADCookie = /*#__PURE__*/function () {
   _createClass(ADCookie, [{
     key: "init",
     value: function init() {
-      this.defaultAttributes = {
+      this.defaultAttributes_ = {
         path: '/'
       };
     }
@@ -134,7 +134,7 @@ var ADCookie = /*#__PURE__*/function () {
         return;
       }
 
-      attributes = this.assign_({}, defaultAttributes, attributes);
+      attributes = this.assign_({}, this.defaultAttributes_, attributes);
 
       if (typeof attributes.expires === 'number') {
         attributes.expires = new Date(Date.now() + attributes.expires * 864e5);
