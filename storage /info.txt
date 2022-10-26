@@ -1,0 +1,10 @@
+Storage types 
+    Local Storage
+    Session Storage
+    indexedDB
+    Cache Storage
+
+
+
+
+
