@@ -184,7 +184,9 @@ class ADPager {
     }
 
     renderPager_(){
-        const fixture = '';
+        let fixture = '<div class="ad-pager"><div class="ad-pager-selector" ad-selector="hide"><div><span ad-selector-cur></span></div></div><div class="ad-pager-selector__options" ad-opt><div class="ad-selector-option" ad-pager-button="first">First</div><div class="ad-selector-option" ad-opt-last ad-pager-button="last">Last</div></div><div class="ad-pager-button" ad-pager-button="prev"> <svg><path d="m14 18-6-6 6-6 1.4 1.4-4.6 4.6 4.6 4.6Z"/></svg> </div><div class="ad-pager-button" ad-pager-button="next"> <svg><path d="M9.4 18 8 16.6l4.6-4.6L8 7.4 9.4 6l6 6Z"/></svg></div></div>';
+        fixture = this.createElement(fixture);
+        this.root_.appendChild(fixture);
     }
 
     addPageControl_(opt){
