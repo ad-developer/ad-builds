@@ -1,0 +1,94 @@
+.ad-pager{
+    display: flex;
+    position: relative;
+    height: 40px;
+    align-items: center;
+}
+.ad-pager--hidden{
+    visibility: hidden;
+}
+.ad-pager-selector{
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin-right: 4px;
+    padding: 0 4px;
+    height: 32px;
+    cursor: pointer;
+}
+.ad-pager-selector:hover{
+    background-color: #f1f1f1;
+}
+.ad-pager-selector__options{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    min-width: 60px;
+    padding: 4px 0;
+    top: 38px;
+    right: 72px;
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+    background-color: #fff;
+    z-index: 100;
+    visibility: hidden;
+}
+.ad-pager-selector__options--show {
+    visibility: visible;
+}
+.ad-selector-option{
+    display: flex;
+    height: 32px;
+    align-items: center;
+    padding: 0 8px;
+}
+.ad-selector-option:hover{
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+.ad-pager-button{
+    display: flex;
+    position: relative; 
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 4px;
+}
+.ad-pager-button:hover{
+    background-color: #f1f1f1;
+}
+.ad-pager-button svg {
+    width: 24px;
+    height: 24px;
+}
+.ad-pager-button:last-child{
+    margin-right: 0px;
+}
+.ad-selector-page-control{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 8px;
+    border-top: 1px solid #ccc;; 
+    cursor: default;
+}
+.ad-selector-page-control select{
+    border: none;
+    margin-right: 8px;
+    outline: none;
+}
+.ad-selector-page-control span {
+    white-space: nowrap;
+}
+.ad-pager--disabled {
+    color: #ccc;
+}
+.ad-pager--disabled svg {
+    fill: #aaa;
+}
+.ad-pager--disabled:hover {
+    background-color: inherit;
+    cursor: default;
+}

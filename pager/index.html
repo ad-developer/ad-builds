@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="master.css">
+    <title>Document</title>
+    <style>
+        .mdc-typography--body2 {
+            font-family: Roboto, sans-serif;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: 400;
+            letter-spacing: 0.0178571429em;
+            text-decoration: inherit;
+            text-transform: inherit;
+        }
+        .wrapper{
+            display: flex;
+            justify-content: center;
+            margin: 50px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body class="mdc-typography--body2">
+    <div class="wrapper">
+        <div class="ad-pager" ad-pager>
+            <div class="ad-pager-selector" ad-selector="hide">
+                <div>
+                    <span ad-selector-cur></span>
+                </div>
+            </div>
+            <div class="ad-pager-selector__options" ad-opt>
+                <div class="ad-selector-option" ad-pager-button="first">First</div>
+                <div class="ad-selector-option" ad-opt-last ad-pager-button="last">Last</div>
+            </div>
+            <div class="ad-pager-button" ad-pager-button="prev">
+                <svg><path d="m14 18-6-6 6-6 1.4 1.4-4.6 4.6 4.6 4.6Z"/></svg>
+            </div>
+            <div class="ad-pager-button" ad-pager-button="next">
+                <svg><path d="M9.4 18 8 16.6l4.6-4.6L8 7.4 9.4 6l6 6Z"/></svg>
+            </div>
+        </div>
+    </div>
+    <script src="pager.js"></script>
+    <script>
+        const anc = document.querySelector('[ad-pager]');
+        //const pager =  new ADPager(anc, {recordsPerPage: 10});
+        const pager =  new ADPager(anc, {recordsPerPage: 10, pageControl: true, options: [5, 10, 25,50,100,150,200]});
+        pager.set(1, 11);
+        anc.addEventListener('pager.change', (e)=>{
+            const pageSelected = e.detail.pageSelected;
+            pager.set(pageSelected, 11);
+        });
+        anc.addEventListener('pager.records.change', e=>{
+            const records = e.detail.recordsPerPage;
+            pager.set(1, 11);
+        });
+    </script>
+</body>
+</html>
