@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="master.css">
+    <title>Document</title>
+    <style>
+        .ad-collapse-box-container {
+            width: 300px;
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ad-collapse-box-container">
+        <div class="ad-collapse-box ad-collapse-box__opened" ad-collapse-box ad-id="prod-list">
+            <div class="ad-collapse-box-title" ad-title>
+                <div class="ad-collapse-box-title__text">
+                    Product list
+                </div>
+                <div class="ad-collapse-box-title__arrow" ad-button="opened">
+                    <svg>
+                        <path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="ad-collapse-box__content">
+               <!-- <div>
+                    <label for="">Search all</label>
+                    <input type="text">
+                </div> -->
+                <div style="padding:24px">
+                    <div>
+                        <label for="">Option one</label>
+                        <input type="checkbox" name="" id="">
+                    </div>
+                    <div>
+                        <label for="">Option two</label>
+                        <input type="checkbox" name="" id="">
+                    </div>
+                    <div>
+                        <label for="">Option three</label>
+                        <input type="checkbox" name="" id="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ad-collapse-box" ad-collapse-box ad-id="brands">
+            <div class="ad-collapse-box-title" ad-title>
+                <div class="ad-collapse-box-title__text">
+                    Brands
+                </div>
+                <div class="ad-collapse-box-title__arrow" ad-button="closed">
+                    <svg>
+                        <path d="m12 15.375-6-6 1.4-1.4 4.6 4.6 4.6-4.6 1.4 1.4Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="ad-collapse-box__content" ad-content>
+                <ul>
+                    <li>One</li>
+                    <li>Two</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <script src="component.js"></script>
+    <script src="section.js"></script>
+    <script src="test.js"></script>
+</body>
+</html>
